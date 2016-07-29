@@ -23,9 +23,8 @@ def sort(seq):
     :rtype: A list of sorted integers
     """
 
-    gaps = [x for x in range(len(seq) // 2, 0, -1)]
-
-    for gap in gaps:
+    gap = len(seq) // 2
+    while gap > 0:
         for i in range(gap, len(seq)):
             temp = seq[i]
             j = i
@@ -33,5 +32,6 @@ def sort(seq):
                 seq[j] = seq[j - gap]
                 j -= gap
             seq[j] = temp
-
+        gap = gap // 2
     return seq
+
